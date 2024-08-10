@@ -100,6 +100,8 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 	int i;
@@ -116,4 +118,3 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
-
