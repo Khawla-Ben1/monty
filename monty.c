@@ -106,6 +106,7 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"mul", mul},
 		{NULL, NULL}
 	};
 	int i;
