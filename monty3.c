@@ -137,3 +137,31 @@ void mod(stack_t **stack, unsigned int line_number)
 
     free(first);
 }
+
+#include "monty.h"
+
+/**
+ * stack_pchar - Handles the pchar opcode.
+ * @stack: Pointer to the head of the stack.
+ * @line_number: The current line number in the bytecode file.
+ *
+ * Description: This function prints the character at the top of the stack.
+ * If the stack is empty or the value is not a valid ASCII character, it
+ * prints an error message and exits.
+ */
+void stack_pchar(stack_t **stack, unsigned int line_number)
+{
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+    if ((*stack)->n < 0 || (*stack)->n > 127)
+    {
+        fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+    printf("%c\n", (*stack)->n);
+}

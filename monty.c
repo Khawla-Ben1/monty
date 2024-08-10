@@ -109,6 +109,7 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 		{"div", stack_div},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", stack_pchar},
 		{NULL, NULL}
 	};
 	int i;
