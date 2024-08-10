@@ -64,3 +64,39 @@ void mul(stack_t **stack, unsigned int line_number)
 
 	free(first);
 }
+
+/**
+ * div - Handles the div opcode.
+ * @stack: Pointer to the head of the stack.
+ * @line_number: The current line number in the bytecode file.
+ *
+ * Description: This function divides the second top element by the top element
+ * of the stack. If the stack contains fewer than two elements or the top element
+ * is zero, it prints an error message and exits.
+ */
+void div(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first, *second;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	first = *stack;
+	second = (*stack)->next;
+
+	second->n /= first->n;
+
+	*stack = second;
+	(*stack)->prev = NULL;
+
+	free(first);
+}
