@@ -63,7 +63,7 @@ void push(stack_t **stack, unsigned int line_number)
  * @line_number: The current line number in the bytecode file.
  *
  * Description: This function prints all the values on the stack, starting
- * from the top of the stack. If the stack is empty, it does not print anything.
+ * from the top of the stack.If the stack is empty, it does not print anything.
  */
 void pall(stack_t **stack, unsigned int line_number)
 {

@@ -1,12 +1,18 @@
 #include "monty.h"
 
 /**
-* main - function for monty code interpreter
-* @argc: argument count
-* @argv: argument value
-*
-* Return : exit success
-*/
+ * main - Entry point for the Monty bytecode interpreter.
+ * @argc: The number of command-line arguments.
+ * @argv: The command-line arguments.
+ *
+ * Return: EXIT_SUCCESS if the program runs successfully,
+ *          or EXIT_FAILURE
+ *         if an error occurs
+ *
+ * Description: This function reads the bytecode file,
+ *          processes each line,
+ *          and executes the corresponding opcodes.
+ */
 
 int main(int argc, char *argv[])
 {
