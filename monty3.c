@@ -74,7 +74,7 @@ void mul(stack_t **stack, unsigned int line_number)
  * of the stack. If the stack contains fewer than two elements or the top element
  * is zero, it prints an error message and exits.
  */
-void div(stack_t **stack, unsigned int line_number)
+void stack_div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *first, *second;
 
