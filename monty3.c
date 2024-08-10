@@ -113,32 +113,30 @@ void stack_div(stack_t **stack, unsigned int line_number)
  */
 void mod(stack_t **stack, unsigned int line_number)
 {
-    stack_t *first, *second;
+	stack_t *first, *second;
 
-    if (*stack == NULL || (*stack)->next == NULL)
-    {
-        fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    if ((*stack)->n == 0)
-    {
-        fprintf(stderr, "L%u: division by zero\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    first = *stack;
-    second = (*stack)->next;
+	first = *stack;
+	second = (*stack)->next;
 
-    second->n %= first->n;
+	second->n %= first->n;
 
-    *stack = second;
-    (*stack)->prev = NULL;
+	*stack = second;
+	(*stack)->prev = NULL;
 
-    free(first);
+	free(first);
 }
-
-#include "monty.h"
 
 /**
  * stack_pchar - Handles the pchar opcode.
@@ -151,17 +149,17 @@ void mod(stack_t **stack, unsigned int line_number)
  */
 void stack_pchar(stack_t **stack, unsigned int line_number)
 {
-    if (*stack == NULL)
-    {
-        fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    if ((*stack)->n < 0 || (*stack)->n > 127)
-    {
-        fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if ((*stack)->n < 0 || (*stack)->n > 127)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    printf("%c\n", (*stack)->n);
+	printf("%c\n", (*stack)->n);
 }

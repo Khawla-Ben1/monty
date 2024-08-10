@@ -51,4 +51,7 @@ void mul(stack_t **stack, unsigned int line_number);
 void stack_div(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void stack_pchar(stack_t **stack, unsigned int line_number);
+void stack_pstr(stack_t **stack, unsigned int line_number);
+void stack_rotl(stack_t **stack, unsigned int line_number);
+void stack_rotr(stack_t **stack, unsigned int line_number)
 #endif /* MONTY_H */
