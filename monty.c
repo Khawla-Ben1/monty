@@ -35,7 +35,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int n;
 
 	arg = strtok(NULL, " \t\n");
-	if (arg == NULL || !isdigit(arg[0]) && (arg[0] != '-' || !isdigit(arg[1])))
+	if (arg == NULL || (!isdigit(arg[0]) && (arg[0] != '-' || !isdigit(arg[1]))))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
