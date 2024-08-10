@@ -62,7 +62,6 @@ void stack_rotl(stack_t **stack, unsigned int line_number)
 	top->next = NULL;
 }
 
-
 /**
  * stack_rotr - Handles the rotr opcode.
  * @stack: Pointer to the head of the stack.
