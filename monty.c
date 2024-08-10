@@ -32,16 +32,23 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 	char *arg;
+	char *endptr;
 	int n;
 
 	arg = strtok(NULL, " \t\n");
-	if (arg == NULL || (!isdigit(arg[0]) && (arg[0] != '-' || !isdigit(arg[1]))))
+	if (arg == NULL || *arg == '\0')
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	n = atoi(arg);
+	n = strtol(arg, &endptr, 10);
+	if (*endptr != '\0')
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
